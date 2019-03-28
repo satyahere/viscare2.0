@@ -1,0 +1,178 @@
+<div class="login">
+<div class="wrapper wrapper-login">
+  <div class="container signup-two-forms animated fadeIn signup">
+    <h3 class="text-center">Sign Up</h3>
+
+    <div class="row">
+
+      <div class="col-sm-6 form-group">
+        <label class="form-radio-label ml-3" id="show-signin">
+          <input class="form-radio-input" type="radio" name="optionsRadios" value="" checked="">
+          <span class="form-radio-sign"> &nbsp; Home Health Agency</span>
+        </label>
+      </div>
+      <div class="col-sm-6 form-group">
+        <label class="form-radio-label ml-3" id="show-signup">
+          <input class="form-radio-input" type="radio" name="optionsRadios" value="">
+          <span class="form-radio-sign"> &nbsp; Health Care Facilitator</span>
+        </label>
+      </div>
+
+    </div>
+     
+      
+    <div class="container-signup">
+      <div class="login-form">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" id="signuphcf">
+          <div class="">
+            <div class="form-group">
+              <label for="companyname" class="placeholder">
+                <b>Company Name
+                  <span class="required-label">*</span>
+                </b>
+              </label>
+              <input id="companyname" formControlName="companyName" name="companyname" type="text" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.companyName.errors }" placeholder="Company Name" required>
+              <div *ngIf="submitted && f.companyName.errors" class="invalid-feedback">
+                <div *ngIf="f.companyName.errors.required">Company Name is required</div>
+            </div>
+            </div>
+            <div class="form-group">
+              <label for="fecilitytype" class="placeholder">Facility Type</label>
+              <div class="select2-input">
+                <select id="fecilitytype" name="fecilitytype" class="form-control" required>
+                  <option value="">&nbsp;</option>
+                  <option value="AK">Look up table - Skilled Nursing Facility (SNF)</option>
+                  <option value="HI">Hospital</option>
+                  <option>Rehabilitation Center</option>
+                  <option>Assisted Living Facility (ALF)</option>
+                  <option>Physician's Medical Office</option>
+
+                </select>
+              </div>
+            </div>
+            <div class="row row-demo-grid">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="firstnamehcf" class="placeholder">
+                    <b>First Name
+                      <span class="required-label">*</span>
+                    </b>
+                  </label>
+                  <input id="firstnamehcf" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" name="firstnamehcf" type="text" class="form-control" placeholder="First Name" required>
+                  <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                    <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="lastnamehcf" class="placeholder">
+                    <b>Last Name
+                      <span class="required-label">*</span>
+                    </b>
+                  </label>
+                  <input id="lastnamehcf" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" name="lastnamehcf" type="text" class="form-control" placeholder="Last Name" required>
+                  <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                </div>
+                </div>
+              </div>
+            </div>
+            <div class="row row-demo-grid">
+              <div class="col-sm-8">
+                <div class="form-group">
+                  <label for="businessphonehcf" class="placeholder">
+                    <b>Business Phone
+                      <span class="required-label">*</span>
+                    </b>
+                  </label>
+                  <input id="businessphonehcf" type="number" formControlName="businessPhone" [ngClass]="{ 'is-invalid': submitted && f.businessPhone.errors }" name="businessphonehcf" maxlength="7" class="form-control" placeholder="Business Phone"
+                    required>
+                    <div *ngIf="submitted && f.businessPhone.errors" class="invalid-feedback">
+                      <div *ngIf="f.businessPhone.errors.required">Business Phone is required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="extensionhcf" class="placeholder">
+                    <b>Extension
+                      <span class="required-label">*</span>
+                    </b>
+                  </label>
+                  <input id="extensionhcf" formControlName="extension" [ngClass]="{ 'is-invalid': submitted && f.extension.errors }" name="extensionhcf" type="tel" maxlength="3" class="form-control" placeholder="Ext" required>
+                  <div *ngIf="submitted && f.extension.errors" class="invalid-feedback">
+                    <div *ngIf="f.extension.errors.required">Extension Number is required</div>
+                </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="mobilehcf" class="placeholder">
+                <b>Mobile
+                  <span class="required-label">*</span>
+                </b>
+              </label>
+              <input id="mobilehcf" name="mobilehcf" formControlName="mobile" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" type="number" maxlength="10" class="form-control" placeholder="Mobile" required>
+              <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                <div *ngIf="f.mobile.errors.required">Mobile Number is required</div>
+            </div>
+            </div>
+            <div class="form-group">
+              <label for="businessemailhcf" class="placeholder">
+                <b>Business Email
+                  <span class="required-label">*</span>
+                </b>
+              </label>
+              <input id="businessemailhcf" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" name="businessemailhcf" type="email" class="form-control" placeholder="Business Email" required>
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+            </div>
+              <small>This will be your user name</small>
+            </div>
+            <div class="form-group form-show-validation">
+              <label for="passwordhcf" class="placeholder">Password
+                <span class="required-label">*</span>
+              </label>
+              <div>
+                <input type="password"  formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" class="form-control" id="passwordhcf" name="passwordhcf" placeholder="Enter Password" required>
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">Password is required</div>
+              </div>
+              </div>
+            </div>
+            <div class="form-group form-show-validation">
+              <label for="confirmpasswordhcf" class="placeholder">Confirm Password
+                <span class="required-label">*</span>
+              </label>
+              <div>
+                <input type="password"  formControlName="confirmPassword" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" class="form-control" id="passwordhcf" name="passwordhcf" placeholder="Enter Password" required>
+                <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                  <div *ngIf="f.confirmPassword.errors.required">Password is required</div>
+              </div>
+              </div>
+            </div>
+            <div class="form-group form-action-d-flex mb-3">
+              <div class="custom-control custom-checkbox" style="visibility:hidden;">
+                <input type="checkbox" class="custom-control-input" id="rememberme">
+                <label class="custom-control-label m-0" for="rememberme">Remember Me</label>
+              </div>
+              <input type="submit" class="btn btn-primary col-md-5 float-right mt-3 mt-sm-0 fw-bold" value="Sign Up" />
+            </div>
+            <div class="login-account">
+              <small class="msg">By signing up you accept
+                <a href="javascript:;" class="link">Terms & Conditions</a> and
+                <a href="javascript:;" class="link">Privacy Statements</a>
+              </small>
+
+            </div>
+          </div>
+      
+      </form>
+    </div>
+    </div>
+
+
+</div>
+</div>
+</div>
